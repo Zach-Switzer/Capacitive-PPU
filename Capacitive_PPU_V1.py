@@ -4,7 +4,10 @@
 
 import time # Use for time calls
 from subprocess import call # Use for turning off the Pi
+import sys, select # Use for timed user input
 import os
+
+ServoBlaster = open('/dev/servoblaster', 'w') # opening servoblaster
 
 # Creating the function generator
 os.chdir("/home/pi/PiBits/ServoBlaster/user") # changing the directory to access the servod.c file
