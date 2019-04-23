@@ -2,6 +2,7 @@
 #--------- Code for Matrix thruster w/ Capcitive PPU ---------#
 #-------------------------------------------------------------#
 
+import timeit
 import time # Use for time calls
 from subprocess import call # Use for turning off the Pi
 import sys, select # Use for timed user input
@@ -31,31 +32,32 @@ while (KeyboardInterrupt!=True): # while loops that runs until you stop it
     t2=time.time()
     print(t2-t1)
     print('turning off pin 12')
+    time.sleep(1)
 
     # Release the capacitors
     ServoBlaster.write('P1-13=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.5)
     ServoBlaster.write('P1-15=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.5)
     ServoBlaster.write('P1-16=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.5)
     ServoBlaster.write('P1-18=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(2)
 
     # Close the capacitors
     ServoBlaster.write('P1-13=0%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ServoBlaster.write('P1-15=0%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ServoBlaster.write('P1-16=0%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ServoBlaster.write('P1-18=0%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.1)
+    time.sleep(2)
