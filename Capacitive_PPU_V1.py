@@ -11,7 +11,7 @@ import os
 os.chdir("/home/pi/PiBits/ServoBlaster/user") # changing the directory to access the servod.c file
 call("sudo ./servod --cycle-time=200000us --max=100% --min=0us", shell=True) # editing the servod.c file
 call("pwd", shell=True) # printing the current directory to make sure we've changed directories
-time.sleep(0.5)
+time.sleep(0.1)
 
 ServoBlaster = open('/dev/servoblaster', 'w') # opening servoblaster
 
@@ -36,16 +36,16 @@ while (KeyboardInterrupt!=True):
     # Release the capacitors
     ServoBlaster.write('P1-13=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ServoBlaster.write('P1-15=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ServoBlaster.write('P1-16=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
     ServoBlaster.write('P1-18=100%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.01)
+    time.sleep(0.1)
 
     # Close the capacitors
     ServoBlaster.write('P1-13=0%' + '\n')
@@ -59,4 +59,4 @@ while (KeyboardInterrupt!=True):
     time.sleep(0.01)
     ServoBlaster.write('P1-18=0%' + '\n')
     ServoBlaster.flush()
-    time.sleep(0.5)
+    time.sleep(0.1)
